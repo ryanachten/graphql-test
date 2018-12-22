@@ -102,12 +102,13 @@ const mutation = new GraphQLObjectType({
           .then(res => res.data);
       }
     },
-    updateUser: {
+    editUser: {
       type: UserType,
       args: {
         id: { type: new GraphQLNonNull(GraphQLString) },
         firstName: { type: GraphQLString },
-        age: { type: GraphQLInt }
+        age: { type: GraphQLInt },
+        companyId: { type: GraphQLString }
       },
       resolve(parentValue, { id, firstName, age }) {
         return axios
